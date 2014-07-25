@@ -1,0 +1,64 @@
+$LOAD_PATH << '/home/ubuntu/Code/assmblr/lib/'
+
+require 'rubygems'
+gem 'minitest'
+
+
+require 'Parser'
+
+class TestParser < Minitest::Test
+
+	def setup
+		@parser = Parser.new("Add.asm")
+	end
+	
+	def test_that_it_is_type_Parser
+		assert_instance_of(Parser, @parser)
+	end
+	
+	#Does it have all of the required methods?
+		def test_that_it_has_method_hasMoreCommands
+			assert_respond_to(@parser, :hasMoreCommands)
+		end
+	
+		def test_that_it_has_method_advance
+			assert_respond_to(@parser, :advance)
+		end
+	
+		def test_that_it_has_method_commandType
+			assert_respond_to(@parser, :commandType)
+		end
+	
+		def test_that_it_has_method_symbol
+			assert_respond_to(@parser, :symbol)
+		end
+	
+		def test_that_it_has_method_dest
+			assert_respond_to(@parser, :dest)
+		end
+	
+		def test_that_it_has_method_comp
+			assert_respond_to(@parser, :comp)
+		end
+	
+		def test_that_it_has_method_jump
+			assert_respond_to(@parser, :jump)
+		end
+	
+	#initialize method
+				
+		def test_that_it_removes_comments
+			refute_match(/(\/\/)/, )
+		end
+		
+		def test_that_it_removes_whitespace
+			skip "Check for blank lines, whitespace at the end of lines"
+		end
+		
+		
+	
+
+end
+
+
+
